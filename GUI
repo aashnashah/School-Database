@@ -1,0 +1,1370 @@
+package com.company;
+//********************************************************************
+//  GUI.java       Author: Aashna Shah
+//
+//  This is the standalone GUI class.
+//********************************************************************
+import java.lang.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.applet.Applet;
+import java.io.*;
+import java.util.*;
+
+public class GUI extends JPanel
+{
+    //The various JButtons that are used through out the class are declared
+    private JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11;
+
+    //The various JTextFields that are used through out the class are declared
+    private JTextField  name, osis, cuts, year, math, english, history, physics, spanish, address, askNameField, addClass, askClassField, askTest1,
+            askTest2, askTest3, askTest4, askFinalTest, askHwCl, askProject1, askProject2, askProject3, askProject4, askProject5, askTermProject,
+            askTermAbstract, yearsTaught, departmentTeach, classTaught, salary, deleteClass;
+
+    //The various JLabels that are used through out the class are declared
+    private JLabel label, askName, askOsis, askCuts, askYear, askMath, askEnglish, askHistory, askPhysics, askSpanish, askAddress, labelable,
+            askYearsTaught, askDepartmentTeach, askClassTaught, askSalary, askClass, label1,label2,label3, label4, label5, label6, label7,
+            askFill, askTest1L, askTest2L, askTest3L, askTest4L, askFinalTestL, askHwClL, askProject1L, askProject2L, askProject3L, askProject4L,
+            askProject5L, askTermProjectL, askTermAbstractL;
+    //====================================================================================================================================================
+    //this is the constructor GUI, which instantiates all the variables to their default
+    public GUI()
+    {
+        button1 = new JButton();
+        button2 = new JButton();
+        button3 = new JButton();
+        button4 = new JButton();
+        button5 = new JButton();
+        button6 = new JButton();
+        button7 = new JButton();
+        button8 = new JButton();
+        button9 = new JButton();
+        button10 = new JButton();
+        button11 = new JButton();
+
+
+        name = new JTextField();
+        osis = new JTextField();
+        cuts = new JTextField();
+        year = new JTextField();
+        math = new JTextField();
+        english = new JTextField();
+        history = new JTextField();
+        physics = new JTextField();
+        spanish = new JTextField();
+        address = new JTextField();
+        askNameField = new JTextField();
+        addClass = new JTextField();
+        askClassField = new JTextField();
+        askTest1 = new JTextField();
+        askTest2 = new JTextField();
+        askTest3 = new JTextField();
+        askTest4 = new JTextField();
+        askFinalTest = new JTextField();
+        askHwCl = new JTextField();
+        askProject1 = new JTextField();
+        askProject2 = new JTextField();
+        askProject3 = new JTextField();
+        askProject4 = new JTextField();
+        askProject5 = new JTextField();
+        askTermProject = new JTextField();
+        askTermAbstract = new JTextField();
+        yearsTaught = new JTextField();
+        departmentTeach = new JTextField();
+        classTaught = new JTextField();
+        salary = new JTextField();
+        deleteClass = new JTextField();
+
+        label = new JLabel();
+        askName = new JLabel();
+        askOsis = new JLabel();
+        askCuts = new JLabel();
+        askYear = new JLabel();
+        askMath = new JLabel();
+        askEnglish = new JLabel();
+        askHistory = new JLabel();
+        askPhysics = new JLabel();
+        askSpanish = new JLabel();
+        askAddress = new JLabel();
+        labelable = new JLabel();
+        askYearsTaught = new JLabel();
+        askDepartmentTeach = new JLabel();
+        askClassTaught = new JLabel();
+        askSalary = new JLabel();
+        askClass = new JLabel();
+        label1 = new JLabel();
+        label2 = new JLabel();
+        label3 = new JLabel();
+        label4 = new JLabel();
+        label5 = new JLabel();
+        label6 = new JLabel();
+        label7 = new JLabel();
+        askFill = new JLabel();
+        askTest1L = new JLabel();
+        askTest2L = new JLabel();
+        askTest3L = new JLabel();
+        askTest4L = new JLabel();
+        askFinalTestL = new JLabel();
+        askHwClL = new JLabel();
+        askProject1L = new JLabel();
+        askProject2L = new JLabel();
+        askProject3L = new JLabel();
+        askProject4L = new JLabel();
+        askProject5L = new JLabel();
+        askTermProjectL = new JLabel();
+        askTermAbstractL = new JLabel();
+    }
+
+    //This is the constructor GUI, which the PDriver class uses to create the initial button
+    public GUI(String run)
+    {
+        //A panel is created, the color and size are set
+        JPanel panel = new JPanel();
+        panel.setBackground (Color.pink);
+        panel.setPreferredSize (new Dimension (900, 400));
+
+        //A label is instantiated
+        label = new JLabel ("Please click on the action you want to do ");
+
+        //The various buttons are instantiated
+        button1 = new JButton ("Add a student");
+        button2 = new JButton ("Delete a student");
+        button3 = new JButton ("Add a teacher");
+        button4 = new JButton ("Delete a teacher");
+        button5 = new JButton ("Add a class to a student's program");
+        button6 = new JButton ("Delete a class from a student's program");
+        button7 = new JButton ("Update a student's grade");
+        button8 = new JButton ("View information on a student");
+        button9 = new JButton ("View information on a teacher");
+        button10 = new JButton ("View information on a class");
+        button11 = new JButton ("View a student's report card");
+
+        //the buttons are added to the panel
+        panel.add(button1);
+        panel.add(button2);
+        panel.add(button3);
+        panel.add(button4);
+        panel.add(button5);
+        panel.add(button6);
+        panel.add(button7);
+        panel.add(button8);
+        panel.add(button9);
+        panel.add(button10);
+        panel.add(button11);
+
+        panel.setLayout(new GridLayout(4, 6));
+
+        add(label);
+        add(panel);
+
+        setBackground (Color.pink);
+        setPreferredSize (new Dimension (900, 500));
+
+        //ActionListeners are added to the various buttons
+        button1.addActionListener (new Button1Listener());
+        button2.addActionListener (new Button2Listener());
+        button3.addActionListener (new Button3Listener());
+        button4.addActionListener (new Button4Listener());
+        button5.addActionListener (new Button5Listener());
+        button6.addActionListener (new Button6Listener());
+        button7.addActionListener (new Button7Listener());
+        button8.addActionListener (new Button8Listener());
+        button9.addActionListener (new Button9Listener());
+        button10.addActionListener (new Button10Listener());
+        button11.addActionListener (new Button11Listener());
+
+    }
+    //===================================================================================================================================================
+    // Button1Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 1
+    public class Button1Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 1 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Add Student");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (900, 250));
+
+            //various textFields are instantiated
+            name = new JTextField(15);
+            osis = new JTextField(9);
+            cuts = new JTextField(3);
+            year = new JTextField(2);
+            math = new JTextField(7);
+            english = new JTextField(7);
+            history = new JTextField(7);
+            physics = new JTextField(7);
+            spanish  = new JTextField(7);
+            address = new JTextField(50);
+
+            //An action listner is added to address, which is the last textField
+            address.addActionListener (new Address());
+
+            //various JLabels are instantiated
+            askName = new JLabel("Please enter the name of the student you want to add:");
+            askOsis = new JLabel ("Please enter the Osis number of the student you want to add:");
+            askCuts = new JLabel("Please enter the number of cuts the student currently has:");
+            askYear = new JLabel("Please enter the year that the student is currently in:");
+            askMath = new JLabel("Please the code for the student's math class:");
+            askEnglish = new JLabel("Please  enter the code for the student's english class:");
+            askHistory = new JLabel("Please enter the code for the student's history class:");
+            askPhysics = new JLabel("Please enter the code for the student's physics class:");
+            askSpanish = new JLabel("Please enter the code for the student's spanish class:");
+            askAddress = new JLabel("Please enter the address of the student you want to add:");
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(name);
+            panel.add(askOsis);
+            panel.add(osis);
+            panel.add(askCuts);
+            panel.add(cuts);
+            panel.add(askYear);
+            panel.add(year);
+            panel.add(askMath);
+            panel.add(math);
+            panel.add(askEnglish);
+            panel.add(english);
+            panel.add(askHistory);
+            panel.add(history);
+            panel.add(askPhysics);
+            panel.add(physics);
+            panel.add(askSpanish);
+            panel.add(spanish);
+            panel.add(askAddress);
+            panel.add(address);
+
+            panel.setLayout(new GridLayout(10,0));
+
+            frame.getContentPane().add(panel);
+
+            setBackground (Color.pink);
+            setPreferredSize (new Dimension (900, 250));
+            frame.pack();
+            frame.setVisible(true);
+        }
+
+        //------------------------------------------------------------------------------------------
+        //Address is a nested class in the Button1Listener class. This is the class which is the actionListener for the address text field
+        public class Address implements ActionListener
+        {
+            //actionPerformed is the method that is called when the information is added in the address text field
+            public void actionPerformed (ActionEvent event)
+            {
+                //the image, which is needed for creating student is declared and instantiated
+                ImageIcon  icon = new ImageIcon("noImage.jpg");
+
+                //Using the information that the user enter, a student is created
+                Student s = new Student(name.getText(), Integer.parseInt(osis.getText()), Integer.parseInt(cuts.getText()),
+                        Integer.parseInt(year.getText()),address.getText(), icon);
+
+                //the student is added to the array list
+                Student.studList1.add(s);
+
+                // the frame, panel and labels are created. The labels are then added to the panel which is then added to the frame
+                JFrame frame = new JFrame ("Student Added");
+
+                JPanel subPanel = new JPanel();
+                subPanel.setBackground (Color.pink);
+                subPanel.setPreferredSize (new Dimension (700, 300));
+
+
+                JPanel panelFinal = new JPanel();
+                panelFinal.setBackground (Color.pink);
+                panelFinal.setPreferredSize (new Dimension (700, 800));
+
+
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 400));
+
+                JLabel label1 = new JLabel ("The following student has been added:");
+
+                JLabel label2 = new JLabel ("Name: " + name.getText());
+                JLabel label3 = new JLabel ("Osis Number: " + Integer.parseInt(osis.getText()));
+                JLabel label4 = new JLabel (" Year: " + Integer.parseInt(year.getText()));
+                JLabel label5 = new JLabel (" Number of Cuts: " + Integer.parseInt(cuts.getText()));
+                JLabel label6 = new JLabel (" Classes: " + math.getText() +", "+ english.getText() +", "+ history.getText() +", "+
+                        physics.getText() +", "+ spanish.getText());
+                JLabel label7 = new JLabel (" Address: " + address.getText());
+                JLabel label8 = new JLabel ("Student I.D.:", icon, SwingConstants.CENTER);
+                label8.setHorizontalTextPosition (SwingConstants.CENTER);
+                label8.setVerticalTextPosition (SwingConstants.TOP);
+
+                // the labels are added to the panel
+                panel.add(label1);
+                panel.add(label2);
+                panel.add(label3);
+                panel.add(label4);
+                panel.add(label5);
+                panel.add(label6);
+                panel.add(label7);
+
+                subPanel.add(label8);
+
+                panel.setLayout(new GridLayout(7,0));
+
+                panelFinal.add(panel);
+                panelFinal.add(subPanel);
+
+                frame.getContentPane().add(panelFinal);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 800));
+                frame.pack();
+                frame.setVisible(true);
+
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button2Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 2
+    private class Button2Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 2 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            JFrame frame = new JFrame ("Delete Student");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+            name = new JTextField(15);
+
+            name.addActionListener (new Name());
+
+            askName = new JLabel("Please enter the name of the student you want to delete:");
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(name);
+
+            frame.add(panel);
+
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 300));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //Name is a nested class in the Button2Listener class. This is the class which is the actionListener for the name text field
+        private class Name implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Deleted Student");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 200));
+
+                String nameText = name.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter < Student.studList1.size())
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+                        Student.studList1.remove(counter);
+
+                        labelable = new JLabel ("The student " + nameText + " has been found and deleted");
+
+                        break;
+                    }
+                    else
+                    {
+                        labelable = new JLabel ("The student " + nameText + " has not been found");
+                        counter++;
+                    }
+                }
+
+                // the label are added to the panel
+                panel.add(labelable);
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 300));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button3Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 3
+    private class Button3Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 3 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Add Teacher");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (800, 200));
+
+            name = new JTextField(15);
+            yearsTaught = new JTextField(2);
+            departmentTeach = new JTextField(10);
+            classTaught = new JTextField(7);
+            salary = new JTextField(7);
+            address = new JTextField(50);
+
+
+            address.addActionListener (new TeacherAddress());
+
+            askName = new JLabel("Please enter the name of the teacher you want to add:");
+            askYearsTaught = new JLabel ("Please enter the amount of years that this teacher has taught:");
+            askDepartmentTeach = new JLabel("Please enter the department this teacher is in");
+            askClassTaught = new JLabel("Please enter the code for the class this teacher teaches");
+            askSalary = new JLabel("Please enter this teacher's salary:");
+            askAddress = new JLabel("Please enter this teacher's address:");
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(name);
+            panel.add(askYearsTaught);
+            panel.add(yearsTaught);
+            panel.add(askDepartmentTeach);
+            panel.add(departmentTeach);
+            panel.add(askClassTaught);
+            panel.add(classTaught);
+            panel.add(askSalary);
+            panel.add(salary);
+            panel.add(askAddress);
+            panel.add(address);
+
+            panel.setLayout(new GridLayout(6,0));
+
+            frame.getContentPane().add(panel);
+
+            setBackground (Color.pink);
+            setPreferredSize (new Dimension (800, 200));
+            frame.pack();
+            frame.setVisible(true);
+        }
+
+        //------------------------------------------------------------------------------------------
+        //TeacherAddress is a nested class in the Button3Listener class. This is the class which is the actionListener for the teacher address text field
+        public class TeacherAddress implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                Teacher t = new Teacher(name.getText(), Integer.parseInt(yearsTaught.getText()), departmentTeach.getText(), classTaught.getText(),
+                        Integer.parseInt(salary.getText()), address.getText());
+
+
+                Teacher.tList1.add(t);
+
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Teacher Added");
+
+
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (300, 300));
+
+                JLabel label1 = new JLabel ("The following teacher has been added:");
+
+                JLabel label2 = new JLabel ("Name: " + name.getText());
+                JLabel label3 = new JLabel ("Years Taught: " + Integer.parseInt(yearsTaught.getText()));
+                JLabel label4 = new JLabel (" Department: " + departmentTeach.getText());
+                JLabel label5 = new JLabel (" Teaches class: " + classTaught.getText());
+                JLabel label6 = new JLabel (" Salary: " + salary.getText());
+                JLabel label7 = new JLabel (" Address: " + address.getText());
+
+                // the labels and text fields are added to the panel
+                panel.add(label1);
+                panel.add(label2);
+                panel.add(label3);
+                panel.add(label4);
+                panel.add(label5);
+                panel.add(label6);
+                panel.add(label7);
+
+                panel.setLayout(new GridLayout(7,0));
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (300, 300));
+                frame.pack();
+                frame.setVisible(true);
+
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button4Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 4
+    private class Button4Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 4 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Delete Teacher");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+            name = new JTextField(15);
+
+            name.addActionListener (new Name());
+
+            askName = new JLabel("Please enter the name of the teacher you want to delete:");
+
+            panel.add(askName);
+            panel.add(name);
+
+            frame.add(panel);
+
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 300));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //Name is a nested class in the Button4Listener class. This is the class which is the actionListener for the name text field
+        private class Name implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Deleted Teacher");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 200));
+
+                String nameText = name.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter < Teacher.tList1.size())
+                {
+                    if (Teacher.tList1.get(counter).getTName().equals(nameText))
+                    {
+                        Teacher.tList1.remove(counter);
+
+                        labelable = new JLabel ("The teacher " + nameText + " has been found and deleted");
+
+                        break;
+                    }
+                    else
+                    {
+                        labelable = new JLabel ("The teacher " + nameText + " has not been found");
+                        counter++;
+                    }
+                }
+
+                panel.add(labelable);
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 300));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button5Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 5
+    private class Button5Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 5 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Add Class");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (950, 200));
+
+            name = new JTextField(15);
+            addClass = new JTextField(10);
+
+            addClass.addActionListener (new AddClass());
+
+            askName = new JLabel("Please enter the name of the student whose program you want to add this class to");
+            askClass = new JLabel("Please enter the code of class you want to add");
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(name);
+            panel.add(askClass);
+            panel.add(addClass);
+
+
+            frame.add(panel);
+
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (950, 300));
+            frame.pack();
+            frame.setVisible(true);
+        }
+
+        //------------------------------------------------------------------------------------
+        //AddClass is a nested class in the Button5Listener class. This is the class which is the actionListener for the addClass text field
+        private class AddClass implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Class Added");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 200));
+
+                String nameText = name.getText();
+
+                String classText = addClass.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter < Student.studList1.size())
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+                        Student.studList1.get(counter).program.add(classText);
+
+                        labelable = new JLabel ("The class " + classText + " has been added to the program of " + nameText);
+
+                        break;
+                    }
+                    else
+                    {
+                        counter++;
+                    }
+                }
+
+                // the labels are added to the panel
+                panel.add(labelable);
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 300));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+
+    //====================================================================================================================================================
+    // Button6Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 6
+    private class Button6Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 6 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Delete Class");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (950, 200));
+
+            name = new JTextField(15);
+            deleteClass = new JTextField(10);
+
+            deleteClass.addActionListener (new DeleteClass());
+
+            askName = new JLabel("Please enter the name of the student");
+            askClass = new JLabel("Please enter the code of class you want to delete");
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(name);
+            panel.add(askClass);
+            panel.add(deleteClass);
+
+
+            frame.add(panel);
+
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (950, 300));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //DeleteClass is a nested class in the Button6Listener class. This is the class which is the actionListener for the deleteClass text field
+        private class DeleteClass implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Class Deleted");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 200));
+
+                String nameText = name.getText();
+
+                String classText = deleteClass.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter < Student.studList1.size())
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+                        Student.studList1.get(counter).program.remove(classText);
+
+                        labelable = new JLabel ("The class " + classText + " has been deleted from the program of " + nameText);
+
+                        break;
+                    }
+                    else
+                    {
+                        counter++;
+                        labelable = new JLabel ("The class " + classText + " has not been found");
+                    }
+                }
+
+                panel.add(labelable);
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 300));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button7Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 7
+    private class Button7Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 7 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Update Student Grade");
+            JPanel panelF = new JPanel();
+            panelF.setBackground (Color.pink);
+            panelF.setPreferredSize (new Dimension (1000, 600));
+
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (1000, 500));
+
+            JPanel subPanel = new JPanel();
+            subPanel.setBackground (Color.pink);
+            subPanel.setPreferredSize (new Dimension (1000, 50));
+
+
+            // various text fields and lables are instantiated
+            askNameField = new JTextField(15);
+            askClassField = new JTextField(7);
+            askTest1 = new JTextField(2);
+            askTest2 = new JTextField(2);
+            askTest3 = new JTextField(2);
+            askTest4 = new JTextField(2);
+            askFinalTest = new JTextField(2);
+            askHwCl = new JTextField(2);
+            askProject1 = new JTextField(2);
+            askProject2 = new JTextField(2);
+            askProject3 = new JTextField(2);
+            askProject4 = new JTextField(2);
+            askProject5 = new JTextField(2);
+            askTermProject = new JTextField(2);
+            askTermAbstract = new JTextField(2);
+
+            askName = new JLabel("Please enter the name of the student");
+            askClass = new JLabel("Please enter the class of the student");
+            askFill = new JLabel("Please fill out the following information. If you do not have a grade for one " +
+                    "of the following specifications yet, enter 0");
+            askTest1L = new JLabel("Test1: ");
+            askTest2L = new JLabel("Test2: ");
+            askTest3L = new JLabel("Test3: ");
+            askTest4L = new JLabel("Test4: ");
+            askFinalTestL = new JLabel("Final Exam ");
+            askHwClL = new JLabel("Homework/Classwork Grade (should be out of 100 points): ");
+            askProject1L = new JLabel("Project1: ");
+            askProject2L = new JLabel("Project2: ");
+            askProject3L = new JLabel("Project3");
+            askProject4L = new JLabel("Project4");
+            askProject5L = new JLabel("Project5");
+            askTermProjectL = new JLabel("Term Project: ");
+            askTermAbstractL = new JLabel("Term Project Abstract: ");
+
+            subPanel.add(askFill);
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(askNameField);
+            panel.add(askClass);
+            panel.add (askClassField);
+            panel.add(askTest1L);
+            panel.add(askTest1);
+            panel.add(askTest2L);
+            panel.add(askTest2);
+            panel.add(askTest3L);
+            panel.add(askTest3);
+            panel.add(askTest4L);
+            panel.add(askTest4);
+            panel.add(askFinalTestL);
+            panel.add(askFinalTest);
+            panel.add(askHwClL);
+            panel.add(askHwCl);
+            panel.add(askProject1L);
+            panel.add(askProject1);
+            panel.add(askProject2L);
+            panel.add(askProject2);
+            panel.add(askProject3L);
+            panel.add(askProject3);
+            panel.add(askProject4L);
+            panel.add(askProject4);
+            panel.add(askProject5L);
+            panel.add(askProject5);
+            panel.add(askTermProjectL);
+            panel.add(askTermProject);
+            panel.add(askTermAbstractL);
+            panel.add(askTermAbstract);
+
+            panel.setLayout(new GridLayout(17,0));
+
+            panelF.add(subPanel);
+            panelF.add(panel);
+
+            askTermAbstract.addActionListener (new TermAbstract());
+
+            frame.getContentPane().add(panelF);
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (1000, 600));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //TermAbstract is a nested class in the Button7Listener class. This is the class which is the actionListener for the termAbstract text field
+        private class TermAbstract implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+//A frame and panel are created
+                JFrame frame = new JFrame ("Student Grade Updated");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (500, 700));
+
+                String nameText = askNameField.getText();
+                String classText = askClassField.getText();
+
+                int one =   Integer.parseInt(askTest1.getText());
+                int two =     Integer.parseInt(askTest2.getText());
+                int three =     Integer.parseInt(askTest3.getText());
+                int four =     Integer.parseInt(askTest4.getText());
+                int five = Integer.parseInt(askFinalTest.getText());
+                int six=     Integer.parseInt(askHwCl.getText());
+                int seven =     Integer.parseInt(askProject1.getText());
+                int eight =     Integer.parseInt(askProject2.getText());
+                int nine =     Integer.parseInt(askProject3.getText());
+                int ten =     Integer.parseInt(askProject4.getText());
+                int eleven =    Integer.parseInt(askProject5.getText());
+                int twelve =    Integer.parseInt(askTermProject.getText());
+                int thirteen =   Integer.parseInt(askTermAbstract.getText());
+
+
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter <= Student.studList1.size()-1)
+                {
+//An if else conditional is used to check if the name is equal to the name entered
+
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+                        //Various if else conditonals are used to select which Paraadigm for calculating grade is to be used
+                        if(seven == 0 && eight == 0 && nine == 0 && ten == 0 && eleven == 0 && twelve == 0 && thirteen == 0)
+                        {
+                            int index = Student.studList1.get(counter).program.indexOf(classText);
+
+                            int newGrade = Student.studList1.get(counter).calculateGrade(one, two, three, four, five, six);
+
+                            int oldGrade = Student.studList1.get(counter).reportCard.get(index);
+
+                            Student.studList1.get(counter).reportCard.set(index, newGrade);
+
+                            JLabel gradeDone = new JLabel(nameText + "'s grade for class " + classText + " has been updated from " + oldGrade + " to " +
+                                    Student.studList1.get(counter).reportCard.get(index));
+                            panel.add(gradeDone);
+                        }
+                        else if (four == 0 && nine == 0 && ten == 0 && eleven == 0 && twelve == 0 && thirteen == 0)
+                        {
+                            int index = Student.studList1.get(counter).program.indexOf(classText);
+
+                            int newGrade = Student.studList1.get(counter).calculateGrade(one, two, three, five, seven, eight, six);
+
+                            int oldGrade = Student.studList1.get(counter).reportCard.get(index);
+
+                            Student.studList1.get(counter).reportCard.set(index, newGrade);
+
+                            JLabel gradeDone = new JLabel(nameText + "'s grade for class " + classText + " has been updated from " + oldGrade + " to " +
+                                    Student.studList1.get(counter).reportCard.get(index));
+                            panel.add(gradeDone);
+                        }
+                        else if(one == 0 && two == 0 &&  three == 0 &&  four == 0 &&  five == 0)
+                        {
+                            int index = Student.studList1.get(counter).program.indexOf(classText);
+
+                            int newGrade = Student.studList1.get(counter).calculateGrade(seven, eight, nine, ten, eleven, thirteen, twelve, six);
+
+                            int oldGrade = Student.studList1.get(counter).reportCard.get(index);
+
+                            Student.studList1.get(counter).reportCard.set(index, newGrade);
+
+                            JLabel gradeDone = new JLabel(nameText + "'s grade for class " + classText + " has been updated from " + oldGrade + " to " +
+                                    Student.studList1.get(counter).reportCard.get(index));
+                            panel.add(gradeDone);
+                        }
+
+                        break;
+                    }
+
+                    else if (counter == Student.studList1.size()-1)
+                    {
+
+                        JLabel label7 = new JLabel("The student " + nameText + " has not been found");
+
+                        panel.add(label7);
+                    }
+                    counter++;
+                }
+
+
+                panel.setLayout(new GridLayout(26,0));
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (500, 700));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button8Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 8
+    private class Button8Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 8 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Get Student Information");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+
+            // various text fields and lables are instantiated
+            askNameField = new JTextField(15);
+            askName = new JLabel("Please enter the name of the student you want information on");
+
+            askNameField.addActionListener (new AskNameField());
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(askNameField);
+
+            frame.getContentPane().add(panel);
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 200));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //AskNameField is a nested class in the Button8Listener class. This is the class which is the actionListener for the askNameField text field
+        private class AskNameField implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Display Student Information");
+                JPanel panelFinal = new JPanel();
+                panelFinal.setBackground (Color.pink);
+                panelFinal.setPreferredSize (new Dimension (700, 800));
+
+
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 400));
+
+                JPanel subPanel = new JPanel();
+                subPanel.setBackground (Color.pink);
+                subPanel.setPreferredSize (new Dimension (700, 400));
+
+                String nameText = askNameField.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter <= Student.studList1.size()-1)
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+
+                        String name = Student.studList1.get(counter).getStudName();
+                        int osis = Student.studList1.get(counter).getOsisNum();
+                        int cuts = Student.studList1.get(counter).getNumCuts();
+                        int year = Student.studList1.get(counter).getYear();
+                        String address = Student.studList1.get(counter).getAddress();
+                        ImageIcon picture = Student.studList1.get(counter).getPicture();
+
+                        // various and lables are instantiated
+                        label1 = new JLabel("Name: " + name);
+                        label2 = new JLabel("Osis Number:  " + osis);
+                        label3 = new JLabel("Number of Cuts: " + cuts);
+                        label4 = new JLabel("Current Year: " + year);
+                        label5 = new JLabel("Address: " + address);
+
+                        label6 = new JLabel("Image I.D.: ", picture , SwingConstants.CENTER);
+                        label6.setHorizontalTextPosition (SwingConstants.CENTER);
+                        label6.setVerticalTextPosition (SwingConstants.TOP);
+
+                        // the labels and text fields are added to the panel
+                        panel.add(label1);
+                        panel.add(label2);
+                        panel.add(label3);
+                        panel.add(label4);
+                        panel.add(label5);
+
+                        subPanel.add(label6);
+
+                        break;
+                    }
+                    else if (counter == Student.studList1.size()-1)
+                    {
+
+                        JLabel label7 = new JLabel("The student " + nameText + " has not been found");
+
+                        panel.add(label7);
+                    }
+                    counter++;
+                }
+
+                panel.setLayout(new GridLayout(5,0));
+
+                panelFinal.add(panel);
+                panelFinal.add(subPanel);
+
+                frame.getContentPane().add(panelFinal);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 800));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button9Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 9
+    private class Button9Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 9 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Get Teacher Information");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+            // various text fields and lables are instantiated
+            askNameField = new JTextField(15);
+            askName = new JLabel("Please enter the name of the teacher you want information on");
+
+            askNameField.addActionListener (new AskNameField());
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(askNameField);
+
+            frame.getContentPane().add(panel);
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 200));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //AskNameField is a nested class in the Button9Listener class. This is the class which is the actionListener for the askNameField text field
+        private class AskNameField implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Display Teacher Information");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (700, 200));
+
+                String nameText = askNameField.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter <= Teacher.tList1.size()-1)
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Teacher.tList1.get(counter).getTName().equals(nameText))
+                    {
+                        String name = Teacher.tList1.get(counter).getTName();
+                        int years = Teacher.tList1.get(counter).getYearsWorked();
+                        String department = Teacher.tList1.get(counter).getDepartment();
+                        String classTeach = Teacher.tList1.get(counter).getClasses();
+                        int salary = Teacher.tList1.get(counter).getSalary();
+                        String address = Teacher.tList1.get(counter).getTAddress();
+
+                        // various lables are instantiated
+                        JLabel label1 = new JLabel("Name: " + name);
+                        JLabel label2 = new JLabel("Years Worked:  " + years);
+                        JLabel label3 = new JLabel("Department: " + department);
+                        JLabel label4 = new JLabel("Teaching Class: " + classTeach);
+                        JLabel label5 = new JLabel("Salary: " + salary);
+                        JLabel label6 = new JLabel ("Address: " + address);
+
+                        // the labels and text fields are added to the panel
+                        panel.add(label1);
+                        panel.add(label2);
+                        panel.add(label3);
+                        panel.add(label4);
+                        panel.add(label5);
+                        panel.add(label6);
+
+                        break;
+                    }
+                    else if (counter == Teacher.tList1.size()-1)
+                    {
+
+                        JLabel label7 = new JLabel("The teacher " + nameText + " has not been found");
+
+                        panel.add(label7);
+                    }
+                    counter++;
+                }
+                panel.setLayout(new GridLayout(6,0));
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (700, 200));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+
+
+    }
+    //====================================================================================================================================================
+    // Button10Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 10
+    private class Button10Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 10 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("Get Class Information");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+            // various text fields and lables are instantiated
+            askClassField = new JTextField(15);
+            askClass = new JLabel("Please enter the section of the class you want information on");
+
+            askClassField.addActionListener (new AskClassField());
+
+            // the labels and text fields are added to the panel
+            panel.add(askClass);
+            panel.add(askClassField);
+
+            frame.getContentPane().add(panel);
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 200));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //AskClassField is a nested class in the Button10Listener class. This is the class which is the actionListener for the askClassField text field
+        private class AskClassField implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+                //A frame and panel are created
+                JFrame frame = new JFrame ("Display Class Information");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (500, 700));
+
+                String classText = askClassField.getText();
+
+                int counter = 0;
+
+                while (counter <= AcademicClass.cList1.size()-1)
+                {
+                    //An if else conditional is used to check if the section is equal to the section entered
+                    if (AcademicClass.cList1.get(counter).getSection().equals(classText))
+                    {
+
+                        String teacher = AcademicClass.cList1.get(counter).getTeacherName();
+                        String subject = AcademicClass.cList1.get(counter).getSubject();
+                        String section = AcademicClass.cList1.get(counter).getSection();
+                        int period = AcademicClass.cList1.get(counter).getPeriod();
+                        int numKids = AcademicClass.cList1.get(counter).getNumKids();
+
+                        // various lables are instantiated
+                        JLabel label1 = new JLabel("Teacher: " + teacher);
+                        JLabel label2 = new JLabel("Subject:  " + subject);
+                        JLabel label3 = new JLabel("Section: " + section);
+                        JLabel label4 = new JLabel("Period: " + period);
+                        JLabel label5 = new JLabel("Number of Students: " + numKids);
+
+                        JLabel label6 = new JLabel("Roster:");
+
+                        // the labels are added to the panel
+                        panel.add(label1);
+                        panel.add(label2);
+                        panel.add(label3);
+                        panel.add(label4);
+                        panel.add(label5);
+                        panel.add(label6);
+
+                        int count = 0;
+
+                        //a while loop is used to go through the array List
+                        while (count < Student.studList1.size())
+                        {
+
+                            String studName = Student.studList1.get(count).getStudName();
+                            int osisNum = Student.studList1.get(count).getOsisNum();
+
+                            JLabel label7 = new JLabel(studName + "(" + osisNum + ")");
+                            panel.add(label7);
+
+                            count++;
+                        }
+                        break;
+                    }
+                    else if (counter == AcademicClass.cList1.size()-1)
+                    {
+
+                        JLabel label7 = new JLabel("The Class " + classText + " has not been found");
+
+                        panel.add(label7);
+                    }
+                    counter++;
+                }
+
+                panel.setLayout(new GridLayout(26,0));
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (500, 700));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+    //====================================================================================================================================================
+    // Button11Listener is a nested class in the GUI class. This is the class which is the actionListener for the button 11
+    private class Button11Listener implements ActionListener
+    {
+        //actionPerformed is the method that is called when the button 11 is clicked
+        public void actionPerformed (ActionEvent event)
+        {
+            //A frame and panel are created
+            JFrame frame = new JFrame ("View student report card");
+            JPanel panel = new JPanel();
+            panel.setBackground (Color.pink);
+            panel.setPreferredSize (new Dimension (700, 200));
+
+            // various text fields and lables are instantiated
+            askNameField = new JTextField(15);
+            askName = new JLabel("Please enter the name of the student whose report card you want to view");
+
+            askNameField.addActionListener (new AskNameField());
+
+            // the labels and text fields are added to the panel
+            panel.add(askName);
+            panel.add(askNameField);
+
+            frame.getContentPane().add(panel);
+            frame.setBackground (Color.pink);
+            frame.setPreferredSize (new Dimension (700, 200));
+            frame.pack();
+            frame.setVisible(true);
+        }
+        //------------------------------------------------------------------------------------
+        //AskNameField is a nested class in the Button11Listener class. This is the class which is the actionListener for the askNameField text field
+        private class AskNameField implements ActionListener
+        {
+            public void actionPerformed (ActionEvent event)
+            {
+//A frame and panel are created
+                JFrame frame = new JFrame ("Display Student Report Card");
+                JPanel panel = new JPanel();
+                panel.setBackground (Color.pink);
+                panel.setPreferredSize (new Dimension (500, 700));
+
+                String nameText = askNameField.getText();
+
+                int counter = 0;
+
+                //a while loop is used to go through the array List
+                while (counter <= Student.studList1.size()-1)
+                {
+                    //An if else conditional is used to check if the name is equal to the name entered
+                    if (Student.studList1.get(counter).getStudName().equals(nameText))
+                    {
+                        JLabel b = new JLabel(nameText + "'s Report Card:");
+                        JLabel bo = new JLabel("");
+
+                        panel.add(b);
+                        panel.add(bo);
+
+                        int count = 0;
+                        while(count < 5)
+                        {
+                            // various  lables are instantiated
+                            JLabel label1 = new JLabel("Class: " + Student.studList1.get(counter).program.get(count));
+                            JLabel label2 = new JLabel("Teacher: " +  AcademicClass.cList1.get(count).getTeacherName());
+                            JLabel label3 = new JLabel("Grade: " + Integer.toString(Student.studList1.get(counter).reportCard.get(count)));
+                            JLabel b1 = new JLabel("");
+
+                            // the labels and text fields are added to the panel
+                            panel.add(label1);
+                            panel.add(label2);
+                            panel.add(label3);
+                            panel.add(b1);
+
+                            count++;
+                        }
+                        break;
+
+                    }
+                    else if (counter == Student.studList1.size()-1)
+                    {
+
+                        JLabel label7 = new JLabel("The student " + nameText + " has not been found");
+
+                        panel.add(label7);
+                    }
+                    counter++;
+                }
+
+
+                panel.setLayout(new GridLayout(26,0));
+
+                frame.getContentPane().add(panel);
+                frame.setBackground (Color.pink);
+                frame.setPreferredSize (new Dimension (500, 700));
+                frame.pack();
+                frame.setVisible(true);
+            }
+        }
+    }
+}
