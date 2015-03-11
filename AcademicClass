@@ -1,0 +1,122 @@
+package com.company;
+
+//********************************************************************
+//  AcademicClass.java       Author: Aashna Shah
+//
+//  This is the standalone AcademicClass class.
+//********************************************************************
+
+import java.util.*;
+
+public class AcademicClass
+{
+    //various variables are declared
+    private String teacher, subject, section, tName1, subject1, section1;
+    private int period, numStudents, period1, students1;
+
+    //this is the constructor which sets the variables to the default values
+    public AcademicClass()
+    {
+        teacher = "";
+        subject = "";
+        section = "";
+        tName1 = "";
+        subject1 = "";
+        section1 = "";
+
+        period = 0;
+        numStudents = 0;
+        period1 = 0;
+        students1 = 0;
+    }
+
+    //this is the constructor which defines the properties of Academic class
+    public AcademicClass(String teacher1, String subject1, String section1, int period1, int numStudents1)
+    {
+        teacher = teacher1;
+        subject = subject1;
+        section = section1;
+        period = period1;
+        numStudents = numStudents1;
+    }
+
+    //A static arrayList, of type AcademicClass is created
+    static ArrayList <AcademicClass> cList1 = new ArrayList<AcademicClass>();
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the teacher of the class
+    public void setTeacherName ()
+    {
+        tName1 = teacher;
+    }
+
+
+    public String getTeacherName()
+    {
+        return teacher;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the subject of the class
+    public void setSubject()
+    {
+        subject1 = subject;
+    }
+
+    public String getSubject()
+    {
+        return subject;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the section of the class
+    public void setSection()
+    {
+        section1 = section;
+    }
+
+    public String getSection()
+    {
+        return section;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the period of the class
+    public void setPeriod()
+    {
+        period1 = period;
+    }
+
+    public int getPeriod()
+    {
+        return period;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the number of students in the class
+
+    public void setNumKids ()
+    {
+        students1 = numStudents;
+    }
+
+    public int getNumKids()
+    {
+        return numStudents;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //this is the toString method for a academic class
+    public String toString()
+    {
+        String c = "";
+
+        c +=  "\n"+ "Teacher: " + teacher;
+        c += "\n " + " Subject: " + subject;
+        c += "\n " + " Section: " + section;
+        c += "\n " + " Period: " + period;
+        c += "\n " + " Number of Students: " + numStudents;
+
+        return c;
+
+
+    }
+
+
+}
