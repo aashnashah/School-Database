@@ -1,0 +1,263 @@
+package com.company;
+
+//********************************************************************
+//  Main.java       Author: Aashna Shah
+//
+//  This is the driver class for the entire project.
+//********************************************************************
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.applet.Applet;
+
+
+public class Main
+{
+    public static void main ( String[] args)
+    {
+        //the various images, which are needed for the student objects, are declared and instantiated
+        ImageIcon stud0 = new ImageIcon("1.jpg");
+        ImageIcon stud1 = new ImageIcon("2.jpg");
+        ImageIcon stud2 = new ImageIcon("3.jpg");
+        ImageIcon stud3 = new ImageIcon("4.jpg");
+        ImageIcon stud4 = new ImageIcon("5.jpg");
+        ImageIcon stud5 = new ImageIcon("6.jpg");
+        ImageIcon stud6 = new ImageIcon("7.jpg");
+        ImageIcon stud7 = new ImageIcon("8.jpg");
+        ImageIcon stud8 = new ImageIcon("9.jpg");
+        ImageIcon stud9 = new ImageIcon("10.jpg");
+        ImageIcon stud10 = new ImageIcon("boy10.jpg");
+        ImageIcon stud11 = new ImageIcon("11.jpg");
+        ImageIcon stud12 = new ImageIcon("boy12.jpg");
+        ImageIcon stud13 = new ImageIcon("boy13.jpg");
+        ImageIcon stud14 = new ImageIcon("12.jpg");
+        ImageIcon stud15 = new ImageIcon("boy15.jpg");
+        ImageIcon stud16 = new ImageIcon("13.jpg");
+        ImageIcon stud17 = new ImageIcon("14.jpg");
+        ImageIcon stud18 = new ImageIcon("boy18.jpg");
+        ImageIcon stud19 = new ImageIcon("15.jpg");
+
+        //the various students are declared and instantiated
+        Student s0 = new Student("Aashna Shah", 274857853, 0, 11, "4370 Kissena Blvd Apt 23C Flushing NY 11355", stud0);
+        Student s1 = new Student("Mary Ann", 234567891, 3, 11, "11035 Heron Village Dr Houston NY 77064", stud1);
+        Student s2 = new Student("Bator Rosenberg", 345678912, 95, 11, "3135 Park Ave Apt 13M Bronx NY 10451", stud2);
+        Student s3 = new Student("Kaitlin Magee", 456789123, 4, 11,"10 W 33rd St Rm 1221 New York NY 10001", stud3);
+        Student s4 = new Student("Allie Komada-John", 567890123, 8, 11, "1635 Camile Pl Santa Ana NY 92703", stud4);
+        Student s5 = new Student("Anna Baron", 678901234, 2, 11,"753 Stillwater Ave Ste 5 Bangor NY 04401", stud5);
+        Student s6 = new Student("Bonnie Fine", 789012345, 3, 11,"6131 Monterey Rd Apt 1 Los Angeles NY 90042", stud6);
+        Student s7 = new Student("Deidra Nesbeth", 890123456, 9, 11, "12605 Beach Blvd Stanton NY 90680", stud7);
+        Student s8 = new Student("Lancy Siby", 901234567, 13, 11,"4001 W Garden Grove Blvd Orange NY 92868", stud8);
+        Student s9 = new Student("Ajla Dupljak", 112345678, 45, 11,"7638 Barnhart Pl Cupertino NY 95014", stud9);
+        Student s10 = new Student("Christian Mathew", 135791357, 32, 11,"3607 Golfview Dr Mechanicsburg NY 17050", stud10);
+        Student s11 = new Student("Ashmera Mohammed", 357913579, 22, 11, "110 Lightwood Ln Rochester NY 14606", stud11);
+        Student s12 = new Student("Matt Simon", 579135791, 56, 11,"12314 Ashford Place D Sugar Land NY 77478", stud12);
+        Student s13 = new Student("Brandan Gillespie", 791357913, 33, 11,"3711 E Birchwood Ave Cudahy NY 53110", stud13);
+        Student s14 = new Student("Danielle Goldman", 913579135, 15, 11,"3 N 16th St Apt 3E Harrisburg NY 17103", stud14);
+        Student s15 = new Student("Kevin Shah", 246802468, 17, 11,"16501 Jamaica Ave Jamaica NY 11432", stud15);
+        Student s16 = new Student("Suzana Ahmed", 468024680, 16, 11, "1917 Summit Ave Union City NY 07087", stud16);
+        Student s17 = new Student("Nicole Fitzsimons", 680246802, 23, 11, "2929 Turner Hill Rd Lithonia NY 30038", stud17);
+        Student s18 = new Student("Jack Smith", 123456789, 5, 11,"2044 22 St San Pablo NY 94806", stud18);
+        Student s19 = new Student("Zeel Shah", 111245678, 1, 11,"4370 Kissena Blvd Apt 23C Flushing NY 11355", stud19);
+
+
+        //the students are then added the studList1, which is a static arrayList of object student in the Student class
+        Student.studList1.add(s0);
+        Student.studList1.add(s1);
+        Student.studList1.add(s2);
+        Student.studList1.add(s3);
+        Student.studList1.add(s4);
+        Student.studList1.add(s5);
+        Student.studList1.add(s6);
+        Student.studList1.add(s7);
+        Student.studList1.add(s8);
+        Student.studList1.add(s9);
+        Student.studList1.add(s10);
+        Student.studList1.add(s11);
+        Student.studList1.add(s12);
+        Student.studList1.add(s13);
+        Student. studList1.add(s14);
+        Student.studList1.add(s15);
+        Student.studList1.add(s16);
+        Student.studList1.add(s17);
+        Student.studList1.add(s18);
+        Student.studList1.add(s19);
+//================================================================================================================================================
+        //Various teachers are declared and instantiated
+        Teacher t0 = new Teacher ("Justin Fox", 7, "Math", "MCX3-02", 6000, "2843 Sherman Ave Camden NY 08105");
+        Teacher t1 = new Teacher ("Sophia Sapozhnikov", 6, "English", "E2-05", 5500, "35746 Haley St Newark NY 94560");
+        Teacher t2 = new Teacher ("Nicole Cassata", 3, "History", "H5-07", 5000, "1635 Camile Pl Santa Ana NY 92703");
+        Teacher t3 = new Teacher ("Bruce Lawrence", 20, "Science", "SC1-03", 7000, "10 Wall St Burlington NY 01803");
+        Teacher t4 = new Teacher ("Pilar Olmedo", 11, "Foreign Language", "FS3-05", 6500, "831 Marina Village Pkwy Alameda CA 94501");
+
+        //the various teachers are then added to tList1, which is a static arrayList of type teacher in the Teacher class
+        Teacher.tList1.add(t0);
+        Teacher.tList1.add(t1);
+        Teacher.tList1.add(t2);
+        Teacher.tList1.add(t3);
+        Teacher.tList1.add(t4);
+//================================================================================================================================================
+        //Using a for loop, the same classes are added to the program arrayList for each student.
+        for(int counter = 0; counter < Student.studList1.size(); counter++)
+        {
+            Student.studList1.get(counter).program.add("MCX3-02");
+            Student.studList1.get(counter).program.add("E2-05");
+            Student.studList1.get(counter).program.add("H5-07");
+            Student.studList1.get(counter).program.add("SC1-03");
+            Student.studList1.get(counter).program.add("FS3-05");
+
+        }
+//================================================================================================================================================
+//various AcademicClass are declared and instantiated
+        AcademicClass c0 = new AcademicClass("Justin Fox", "Math", "MCX3-02", 3, 20);
+        AcademicClass c1 = new AcademicClass("Sophia Sapozhnikov", "English", "E2-05", 2, 20);
+        AcademicClass c2 = new AcademicClass("Nicole Cassata", "History", "H5-07", 6, 20);
+        AcademicClass c3 = new AcademicClass("Bruce Lawrence", "Science", "SC1-03", 7, 20);
+        AcademicClass c4 = new AcademicClass("Pilar Olmedo", "Spanish", "FS3-05", 9, 20);
+
+        //the various academicClass are then added to cList1, which is a static arrayList of type AcademicClass in the AcademicClass class
+        AcademicClass.cList1.add(c0);
+        AcademicClass.cList1.add(c1);
+        AcademicClass.cList1.add(c2);
+        AcademicClass.cList1.add(c3);
+        AcademicClass.cList1.add(c4);
+
+//================================================================================================================================================
+        // for each student, grades are added to their reportCard arraylist
+
+        Student.studList1.get(0).reportCard.add(90);
+        Student.studList1.get(0).reportCard.add(89);
+        Student.studList1.get(0).reportCard.add(96);
+        Student.studList1.get(0).reportCard.add(92);
+        Student.studList1.get(0).reportCard.add(93);
+
+        Student.studList1.get(1).reportCard.add(85);
+        Student.studList1.get(1).reportCard.add(76);
+        Student.studList1.get(1).reportCard.add(98);
+        Student.studList1.get(1).reportCard.add(99);
+        Student.studList1.get(1).reportCard.add(80);
+
+        Student.studList1.get(2).reportCard.add(76);
+        Student.studList1.get(2).reportCard.add(76);
+        Student.studList1.get(2).reportCard.add(96);
+        Student.studList1.get(2).reportCard.add(84);
+        Student.studList1.get(2).reportCard.add(54);
+
+        Student.studList1.get(3).reportCard.add(91);
+        Student.studList1.get(3).reportCard.add(73);
+        Student.studList1.get(3).reportCard.add(87);
+        Student.studList1.get(3).reportCard.add(97);
+        Student.studList1.get(3).reportCard.add(95);
+
+        Student.studList1.get(4).reportCard.add(77);
+        Student.studList1.get(4).reportCard.add(87);
+        Student.studList1.get(4).reportCard.add(87);
+        Student.studList1.get(4).reportCard.add(90);
+        Student.studList1.get(4).reportCard.add(98);
+
+
+        Student.studList1.get(5).reportCard.add(97);
+        Student.studList1.get(5).reportCard.add(86);
+        Student.studList1.get(5).reportCard.add(85);
+        Student.studList1.get(5).reportCard.add(86);
+        Student.studList1.get(5).reportCard.add(96);
+
+
+        Student.studList1.get(6).reportCard.add(88);
+        Student.studList1.get(6).reportCard.add(98);
+        Student.studList1.get(6).reportCard.add(78);
+        Student.studList1.get(6).reportCard.add(68);
+        Student.studList1.get(6).reportCard.add(78);
+
+        Student.studList1.get(7).reportCard.add(75);
+        Student.studList1.get(7).reportCard.add(85);
+        Student.studList1.get(7).reportCard.add(86);
+        Student.studList1.get(7).reportCard.add(97);
+        Student.studList1.get(7).reportCard.add(89);
+
+        Student.studList1.get(8).reportCard.add(77);
+        Student.studList1.get(8).reportCard.add(67);
+        Student.studList1.get(8).reportCard.add(88);
+        Student.studList1.get(8).reportCard.add(99);
+        Student.studList1.get(8).reportCard.add(66);
+
+        Student.studList1.get(9).reportCard.add(91);
+        Student.studList1.get(9).reportCard.add(92);
+        Student.studList1.get(9).reportCard.add(93);
+        Student.studList1.get(9).reportCard.add(94);
+        Student.studList1.get(9).reportCard.add(95);
+
+        Student.studList1.get(10).reportCard.add(81);
+        Student.studList1.get(10).reportCard.add(82);
+        Student.studList1.get(10).reportCard.add(83);
+        Student.studList1.get(10).reportCard.add(84);
+        Student.studList1.get(10).reportCard.add(85);
+
+        Student.studList1.get(11).reportCard.add(71);
+        Student.studList1.get(11).reportCard.add(72);
+        Student.studList1.get(11).reportCard.add(73);
+        Student.studList1.get(11).reportCard.add(74);
+        Student.studList1.get(11).reportCard.add(75);
+
+        Student.studList1.get(12).reportCard.add(61);
+        Student.studList1.get(12).reportCard.add(62);
+        Student.studList1.get(12).reportCard.add(63);
+        Student.studList1.get(12).reportCard.add(64);
+        Student.studList1.get(12).reportCard.add(65);
+
+        Student.studList1.get(13).reportCard.add(66);
+        Student.studList1.get(13).reportCard.add(77);
+        Student.studList1.get(13).reportCard.add(88);
+        Student.studList1.get(13).reportCard.add(99);
+        Student.studList1.get(13).reportCard.add(55);
+
+        Student.studList1.get(14).reportCard.add(69);
+        Student.studList1.get(14).reportCard.add(68);
+        Student.studList1.get(14).reportCard.add(67);
+        Student.studList1.get(14).reportCard.add(66);
+        Student.studList1.get(14).reportCard.add(65);
+
+        Student.studList1.get(15).reportCard.add(79);
+        Student.studList1.get(15).reportCard.add(78);
+        Student.studList1.get(15).reportCard.add(77);
+        Student.studList1.get(15).reportCard.add(76);
+        Student.studList1.get(15).reportCard.add(75);
+
+        Student.studList1.get(16).reportCard.add(89);
+        Student.studList1.get(16).reportCard.add(88);
+        Student.studList1.get(16).reportCard.add(87);
+        Student.studList1.get(16).reportCard.add(86);
+        Student.studList1.get(16).reportCard.add(85);
+
+        Student.studList1.get(17).reportCard.add(99);
+        Student.studList1.get(17).reportCard.add(98);
+        Student.studList1.get(17).reportCard.add(97);
+        Student.studList1.get(17).reportCard.add(96);
+        Student.studList1.get(17).reportCard.add(95);
+
+        Student.studList1.get(18).reportCard.add(77);
+        Student.studList1.get(18).reportCard.add(78);
+        Student.studList1.get(18).reportCard.add(79);
+        Student.studList1.get(18).reportCard.add(82);
+        Student.studList1.get(18).reportCard.add(85);
+
+        Student.studList1.get(19).reportCard.add(93);
+        Student.studList1.get(19).reportCard.add(94);
+        Student.studList1.get(19).reportCard.add(98);
+        Student.studList1.get(19).reportCard.add(99);
+        Student.studList1.get(19).reportCard.add(99);
+
+//================================================================================================================================================
+        //A JFrame is created, it calls the GUI constructor and creates the initial gui
+        JFrame frame = new JFrame ("User Input");
+
+        frame.getContentPane().add(new GUI("run"));
+
+        frame.pack();
+        frame.setVisible(true);
+
+    }
+}
+
