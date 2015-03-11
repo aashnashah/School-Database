@@ -1,0 +1,212 @@
+package com.company;
+
+//********************************************************************
+//  Student.java       Author: Aashna Shah
+//
+//  This is the standalone Student class.
+//********************************************************************
+
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+import javax.swing.*;
+
+public class Student
+{
+    //various variables are declared
+    private String studName, studAddress, studName1, mathClass, engClass, hisClass, physClass, spanClass,address1 ;
+    private int numCuts, year, osisNum, osisNum1, numCuts1, year1, classGradeFinal;
+    private double classGrade, examGrade, projectGrade, finalTestGrade, finalProjectGrade, hwClGrade, tPAbstract;
+    private ImageIcon picture, picture1;
+
+    //this is the constructor which sets the variables to the default values
+    public Student()
+    {
+        studName = "";
+        studAddress = "";
+        studName1 = "";
+        mathClass = "";
+        engClass = "";
+        hisClass = "";
+        physClass = "";
+        spanClass = "";
+        address1 = "";
+
+        numCuts = 0;
+        year = 0;
+        osisNum = 0;
+        osisNum1 = 0;
+        numCuts1 = 0;
+        year1 = 0;
+        classGradeFinal = 0;
+
+        classGrade = 0.0;
+        examGrade = 0.0;
+        projectGrade = 0.0;
+        finalTestGrade = 0.0;
+        finalProjectGrade = 0.0;
+        hwClGrade = 0.0;
+        tPAbstract = 0.0;
+    }
+
+    //this is the constructor which defines the properties of a student
+    public Student(String name, int osis, int cuts, int yearLevel, String address, ImageIcon icon)
+    {
+        studName = name;
+        osisNum = osis;
+        numCuts = cuts;
+        year = yearLevel;
+        studAddress = address;
+        picture1 = icon;
+    }
+
+    //A static arrayList, of type Student is created
+    static ArrayList <Student> studList1 = new ArrayList<Student>();
+
+
+    //An arraylist of strings is created- it is going to be the program for a student
+    ArrayList <String> program = new ArrayList <String>();
+
+    ///An arraylist of integers is created- it is going to be the grades for a student
+    ArrayList <Integer> reportCard = new ArrayList <Integer>();
+
+    //-------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the name of the Student
+    public void setStudName ()
+    {
+        studName1 = studName;
+    }
+
+
+    public String getStudName ()
+    {
+        return studName;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the osis number of the Student
+    public void setOsisNum ()
+    {
+        osisNum1 = osisNum;
+    }
+
+    public int getOsisNum()
+    {
+        return osisNum;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the number of cuts the student has
+    public void setNumCuts()
+    {
+        numCuts1 = numCuts;
+    }
+
+    public int getNumCuts()
+    {
+        return numCuts;
+    }
+
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the year that the student is in
+    public void setYear ()
+    {
+        year1 = year;
+    }
+
+    public int getYear ()
+    {
+        return year;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the address of the Student
+    public void setAddress ()
+    {
+        address1 = studAddress;
+    }
+
+    public String getAddress()
+    {
+        return studAddress;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the picture of the Student
+    public void setPicture ()
+    {
+        picture = picture1;
+    }
+
+    public ImageIcon getPicture()
+    {
+        return picture1;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the method to calculate the grade using Paradigm 1
+    public int calculateGrade(int exam1, int exam2, int exam3, int exam4, int finalExam, int hwCl)
+    {
+        examGrade = (exam1 + exam2+ exam3 + exam4);
+        hwClGrade = hwCl;
+        finalTestGrade = finalExam;
+
+
+        classGrade = ((((examGrade/400)* .70) + ((finalTestGrade/100)  * .15) + ((hwClGrade/100) * .15))*100);
+
+        classGradeFinal = (int)(classGrade);
+
+        return classGradeFinal;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the method to calculate the grade using Paradigm 2
+    public int calculateGrade(int exam1, int exam2, int exam3, int finalExam, int project1, int project2, int hwCl)
+    {
+
+        examGrade = (exam1 + exam2+ exam3);
+        finalTestGrade = finalExam;
+        projectGrade = (project1 + project2);
+        hwClGrade = hwCl;
+
+        classGrade = (((((examGrade)/300)* .35) + (((projectGrade)/60)* .35) + ((finalTestGrade/ 100)* .15) + ((hwClGrade/100) *.15))*100);
+
+        classGradeFinal = (int)(classGrade);
+
+        return classGradeFinal;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the method to calculate the grade using Paradigm 3
+    public int calculateGrade (int project1, int project2, int project3, int project4, int project5, int projectAbstract, int termProject, int hwCl)
+    {
+        projectGrade = (project1 + project2 + project3 + project4 + project5);
+        finalProjectGrade = termProject;
+        tPAbstract = projectAbstract;
+        hwClGrade = hwCl;
+
+
+        classGrade = (((((projectGrade + tPAbstract)/250)*.70) + ((finalProjectGrade/100)* .15) + ((hwClGrade/100)* .15))*100);
+
+        classGradeFinal = (int)(classGrade);
+
+        return classGradeFinal;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //this is the toString method for a student
+    public String toString()
+    {
+        String student = "";
+
+        student +=  "\n"+ "Name: " + studName ;
+        student += "\n " + " Osis Number: " + osisNum;
+        student += "\n " + " Year: " + year;
+        student += "\n " + " Number of Cuts: " + numCuts;
+        student += "\n " + " Address: " + studAddress;
+
+        return student;
+
+
+    }
+
+
+}
