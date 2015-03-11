@@ -1,0 +1,140 @@
+package com.company;
+
+//********************************************************************
+//  Teacher.java       Author: Aashna Shah
+//
+//  This is the standalone Teacher class.
+//********************************************************************
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+
+public class Teacher
+{
+    //various variables are declared
+    private String tName, department, classTeach, addressT, tName1, department1, classTeach1, tAddress1;
+    private int yrsOfService, salary, yearsWorked, salary1;
+
+    //this is the constructor which sets the variables to the default values
+    public Teacher()
+    {
+        tName = "";
+        department = "";
+        classTeach = "";
+        addressT = "";
+        tName1 = "";
+        department1 = "";
+        classTeach1 = "";
+        tAddress1 = "";
+
+        yrsOfService = 0;
+        salary = 0;
+        yearsWorked = 0;
+        salary1 = 0;
+    }
+
+    //this is the constuctor which defines the properties of a teacher
+    public Teacher(String name, int years, String departmentIn, String classes, int tSalary, String tAddress   )
+    {
+        tName = name;
+        yrsOfService = years;
+        department = departmentIn;
+        classTeach = classes;
+        salary = tSalary;
+        addressT = tAddress;
+    }
+
+    //A static arrayList, of type Teacher is created
+    static ArrayList <Teacher> tList1 = new ArrayList<Teacher>();
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the name of the teacher
+    public void setTName ()
+    {
+        tName1 = tName;
+    }
+
+
+    public String getTName ()
+    {
+        return tName;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the number of years the teacher has worked
+    public void setYearsWorked ()
+    {
+        yearsWorked = yrsOfService;
+    }
+
+    public int getYearsWorked()
+    {
+        return yrsOfService;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the departmed the teacher is in
+    public void setDepartment()
+    {
+        department1 = department;
+    }
+
+    public String getDepartment()
+    {
+        return department;
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the class that the teacher teaches
+    public void setClasses ()
+    {
+        classTeach1 = classTeach;
+    }
+
+    public String getClasses()
+    {
+        return classTeach;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the salary of the teacher
+    public void setSalary ()
+    {
+        salary1 = salary;
+    }
+
+    public int getSalary ()
+    {
+        return salary;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //This is the accessor/mutator method for the address of the teacher
+    public void setTAddress ()
+    {
+        tAddress1 = addressT;
+    }
+
+    public String getTAddress()
+    {
+        return addressT;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    //this is the toString method for a teacher
+    public String toString()
+    {
+        String t = "";
+
+        t +=  "\n"+ "Name: " + tName ;
+        t += "\n " + " Years Worked: " + yrsOfService;
+        t += "\n " + " Department: " + department;
+        t += "\n " + " Classes: " + classTeach;
+        t += "\n " + " Address: " + addressT;
+        t += "\n " + " Salary: " + salary;
+
+        return t;
+
+
+    }
+
+
+
+
+}
